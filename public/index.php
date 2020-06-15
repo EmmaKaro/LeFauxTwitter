@@ -1,28 +1,13 @@
+<?php
 
-<!doctype html>
-<html>
-  <head>
-    <title>Formulaire</title>
-    <meta charsert="UTF-8"/>
-  </head>
-  <body>
-  <form method="post">
-    <p>
-      <!-- information nom de l'utilisateur -->
-      <label for="nom">Nom:</label>
-      <input type="text" name="nom" id="nom" required="required"/> <br/>
+// Recherche du dossier index.view
 
-      <!-- information prenom de l'utilisateur -->
-      <label for="prenom">Prenom:</label>
-      <input type="text" name="prenom" id="prenom" required="required"/> <br/>
 
-      <!-- information message -->
-      <label for="message">Message:</label>
-      <textarea name="message" id="message" rows="10" required="required"/></textarea> <br/>
-
-      <!-- bouton envoyer -->
-      <input type="submit" name="envoyer" value="Envoyer" />
-    </p>
-  </form>
-  </body>
-</html>
+  if(isset($_POST['envoyer'])) {
+    if(isset($_POST['nom'], $_POST['prenom'], $_POST['message'])){
+      // Affichage des informations
+      
+      echo $_POST['nom']." ".$_POST['prenom']." ".$_POST['message'];
+    }
+  }
+  require_once __DIR__ . '/../view/index.view.php';
