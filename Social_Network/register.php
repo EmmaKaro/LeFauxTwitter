@@ -2,7 +2,7 @@
 <?php
 
     //Si le formulaire a ete soumis
-    if($_POST['register'])) {
+    if(isset($_POST['register'])) {
       //si tous les champs demandes ont ete remplis
       if(!empty($_POST['name']) && (!empty($_POST['pseudo']) && (!empty($_POST['email']) && (!empty($_POST['password'])
       && !empty($_POST['password_confirm]))'])) {
@@ -27,7 +27,21 @@
           }
         }
 
-        if(is_already_in_use(''))
+        if(is_already_in_use('pseudo', $pseudo, 'users')) {
+          $errors[] = "Pseudo deja utilise"
+        }
+
+        if(is_already_in_use('email', $email, 'users')) {
+          $errors[] = "Adresse deja utilise"
+        }
+
+        //si il n'y a pas d'erreurs, alors l'utilisateur peut acceder a son compte
+        if(count($errors) == 0) {
+          //Envoi d'un mail d'activation
+
+          //Redirection vers sa page de profil
+
+        }
 
       //si tous les champs demandes n'ont pas ete remplis
       } else {
